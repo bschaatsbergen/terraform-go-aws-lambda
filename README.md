@@ -19,8 +19,9 @@ Utility Terraform module that builds a Go binary and zips it up for use in an AW
 ## Usage
 
 ```hcl
-module "archive" {
-  source      = "../"
+module "lambda-go-packer" {
+  source  = "bschaatsbergen/lambda-go-packer/aws"
+  version = "0.1.0-rc1"
   source_path = "${path.module}/my-app"
   output_path = "${path.module}/my-app/my-app.zip"
 }
