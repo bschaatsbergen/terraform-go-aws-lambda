@@ -5,6 +5,12 @@ Utility Terraform module that builds a Go binary and zips it up for use in an AW
 > [!IMPORTANT]
 > This module assumes that you're using the `provided.al2023` or `provided.al2` runtimes. These runtimes require that the Go binary is named `bootstrap`. 
 
+## Features
+
+- Builds a Go binary and produces a zip archive.
+    - With the ability to install dependencies.
+- Calculates a hash of the source code, so that changes to the source code trigger a redeployment.
+
 ## Dependencies
 
 - [Go](https://golang.org/doc/install)
