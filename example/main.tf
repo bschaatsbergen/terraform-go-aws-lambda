@@ -32,7 +32,7 @@ resource "aws_lambda_function" "example" {
   function_name    = "example"
   role             = aws_iam_role.example.arn
   runtime          = "provided.al2023"
-  filename         = module.archive.output_path
   handler          = "bootstrap" // Runtime: `provided.al2023` requires the handler to be `bootstrap`
+  filename         = module.archive.output_path
   source_code_hash = module.archive.source_code_hash
 }
