@@ -4,7 +4,7 @@ provider "aws" {
 
 module "example_app_archive" {
   source      = "../"
-  version     = "0.1.0-rc1"
+  version     = "0.1.1-rc1"
   source_path = "${path.module}/example-app"
   output_path = "${path.module}/example-app/example-app.zip"
 }
