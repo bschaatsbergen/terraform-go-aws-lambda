@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # to run this script:
-# echo '{"source_path": "example/my-app", "output_path": "example/my-app/my-app.zip", "install_dependencies": true}' | build.sh
+# echo '{"source_path": "example/example-app", "output_path": "example/example-app/example-app.zip", "install_dependencies": true}' | build.sh
 
 function error_exit() {
   echo "$1" 1>&2

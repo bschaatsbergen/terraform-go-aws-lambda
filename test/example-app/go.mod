@@ -1,4 +1,4 @@
-module my-app
+module example-app
 
 go 1.22.2
 
