@@ -1,10 +1,15 @@
 package main
 
-import "github.com/aws/aws-lambda-go/lambda"
+import (
+	"context"
 
-func handleRequest() (string, error) {
-	return "Hello from Go!", nil
+	"github.com/aws/aws-lambda-go/lambda"
+)
+
+func HandleRequest(ctx context.Context, event interface{}) (string, error) {
+	return "Hello Mars", nil
 }
+
 func main() {
-	lambda.Start(handleRequest)
+	lambda.Start(HandleRequest)
 }
