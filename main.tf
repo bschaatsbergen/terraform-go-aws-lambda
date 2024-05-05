@@ -1,5 +1,5 @@
-data "external" "builder" {
-  program = ["bash", "${path.module}/builder.sh"]
+data "external" "build" {
+  program = ["bash", "${path.module}/build.sh"]
   query = {
     source_path          = var.source_path
     output_path          = var.output_path
@@ -9,7 +9,6 @@ data "external" "builder" {
 
 data "archive_file" "zip" {
   type        = "zip"
-  source_dir  = "${var.source_path}/"
+  source_file = data.external.build.result.binary_path
   output_path = var.output_path
-  depends_on  = [data.external.go_lambda_packer]
 }

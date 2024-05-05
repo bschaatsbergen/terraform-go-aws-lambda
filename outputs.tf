@@ -1,9 +1,9 @@
 output "source_code_hash" {
   description = "Base64-encoded SHA256 hash of the source code."
-  value       = data.external.builder.result.source_code_hash
+  value       = data.archive_file.zip.output_base64sha256
 }
 
 output "output_path" {
   description = "Path to the output archive."
-  value       = data.external.builder.result.output_path
+  value       = data.external.build.result.output_path
 }
