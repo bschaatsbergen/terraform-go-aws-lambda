@@ -3,7 +3,7 @@
 Utility Terraform module that builds a Go binary and zips it up for use in an AWS Lambda function.
 
 > [!IMPORTANT]
-> This module assumes that you're using the `provided.al2023` or `provided.al2` runtimes. These runtimes require that the Go binary is named `bootstrap`. 
+> This module assumes that you're using the `provided.al2023` or `provided.al2` runtimes. These runtimes require that the Go binary is named `bootstrap`, therefore this module produces a zip archive with the binary named `bootstrap`.
 
 ## Features
 
