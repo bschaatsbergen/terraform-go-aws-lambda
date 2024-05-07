@@ -24,8 +24,8 @@ provider "aws" {
 }
 
 module "example_app_archive" {
-  source  = "bschaatsbergen/lambda-go-packer/aws"
-  version = "0.1.1-rc1"
+  source  = "bschaatsbergen/aws-lambda/go"
+  version = "1.0.0"
   source_path = "${path.module}/example-app"
   output_path = "${path.module}/example-app/example-app.zip"
 }
