@@ -9,12 +9,13 @@ function error_exit() {
 }
 
 function check_deps() {
-  test -f $(which go) || error_exit "`go` command not detected in path, please install it"
-  test -f $(which jq) || error_exit "`jq` command not detected in path, please install it"
+  test -f "$(which go)" || error_exit "$(go) command not detected in path, please install it"
+  test -f "$(which jq)" || error_exit "$(jq) command not detected in path, please install it"
 }
 
 function parse_input() {
-  eval "$(jq -r '@sh "export source_path=\(.source_path) output_path=\(.output_path) install_dependencies=\(.install_dependencies)"')"
+  eval "$(jq -r '@sh "export architecture=\(.architecture) export source_path=\(.source_path) output_path=\(.output_path) install_dependencies=\(.install_dependencies)"')"
+  if [[ -z "${architecture}" ]]; then export architecture=none; fi
   if [[ -z "${source_path}" ]]; then export source_path=none; fi
   if [[ -z "${output_path}" ]]; then export output_path=none; fi
   if [[ -z "${install_dependencies}" ]]; then export install_dependencies=none; fi
@@ -28,9 +29,9 @@ function build_executable() {
     go mod tidy
   fi
 
-  GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o bootstrap .
+  GOOS=linux GOARCH=$architecture CGO_ENABLED=0 go build -o bootstrap .
 
-  cd - # go back to previous directory
+  cd - || exit # go back to previous directory
 } &> /dev/null
 
 function produce_output() {

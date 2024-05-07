@@ -86,6 +86,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_architecture"></a> [architecture](#input\_architecture) | CPU architecture to compile for. | `string` | `"amd64"` | no |
 | <a name="input_install_dependencies"></a> [install\_dependencies](#input\_install\_dependencies) | Whether to install dependencies. | `bool` | `true` | no |
 | <a name="input_output_path"></a> [output\_path](#input\_output\_path) | Path to output archive. | `string` | n/a | yes |
 | <a name="input_source_path"></a> [source\_path](#input\_source\_path) | Path to source code. | `string` | n/a | yes |
